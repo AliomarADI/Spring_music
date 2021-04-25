@@ -15,5 +15,4 @@ public interface AlbumRepo extends JpaRepository<Album,Integer> {
     List<Album> getAlbumByName(String name);
 
 
-
 }

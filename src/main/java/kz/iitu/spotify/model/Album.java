@@ -1,40 +1,34 @@
 package kz.iitu.spotify.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "albums")
+@Data
+@NoArgsConstructor
 public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Music> musics;
 
 
-    public Album() { }
-
-    public Album(int id, String name) {
-        this.id = id;
-        this.name = name;
-
+    public void addMusic(Music music){
+        musics.add(music);
     }
 
-    public int getId() {
-        return id;
+    public void removeMusic(Music music){
+        musics.remove(music);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
