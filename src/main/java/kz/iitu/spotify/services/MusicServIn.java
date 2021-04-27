@@ -6,14 +6,17 @@ import java.util.List;
 
 public interface MusicServIn {
 
-    public void createMusic(Music music);
+    Music createMusic(Music music);
+
+    Music updateMusic(Music music);
+
     void deleteMusic(Music music);
     List<Music> findAllByNameAndAuthor(String name, String author);
-    public List<Music> getAll();
-    public List<Music> getByDistinctGenre(String genre);
-    void deleteAllByNameAndAuthor(String name,String author);
-
+    List<Music> getAll();
+    List<Music> getByDistinctGenre(String genre);
     List<Music> getByName(String name);
 
-    Music getByNameAndAndAuthor(String name,String author);
+    Music getById(int id);
+
+    List<Music>  getByNameAndAuthor(String name, String author);
 }

@@ -2,11 +2,13 @@ package kz.iitu.spotify.services;
 
 import kz.iitu.spotify.model.Account;
 
+import java.util.List;
+
 public interface AccountServIn {
 
-    Account getAccountByUsernameAndPassword(String username, String password);
-
-    Account deleteByUsernameAndPassword(String username, String password);
-
-    Account createAccount(Account account);
+    Account create(Account o);
+    Account update(Account o);
+    void delete(int id);
+    List<Account> getAll();
+    Account getById(int id);
 }

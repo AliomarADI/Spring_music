@@ -10,4 +10,8 @@ public interface AccountRepo extends JpaRepository<Account,Integer> {
     Account getAccountByUsernameAndPassword(String username, String password);
 
     Account deleteByUsernameAndPassword(String username, String password);
+
+    Account getById(int id);
+
+    Account getByUsername(String username);
 }

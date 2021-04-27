@@ -14,8 +14,12 @@ public class MusicServImpl implements MusicServIn {
     MusicRepo musicRepo;
 
     @Override
-    public void createMusic(Music music) {
-        musicRepo.save(music);
+    public Music createMusic(Music music) {
+        return musicRepo.save(music);
+    }
+    @Override
+    public Music updateMusic(Music music) {
+        return musicRepo.save(music);
     }
 
     @Override
@@ -38,10 +42,6 @@ public class MusicServImpl implements MusicServIn {
         return musicRepo.findDistinctByGenre(genre);
     }
 
-    @Override
-    public void deleteAllByNameAndAuthor(String name, String author) {
-        musicRepo.deleteAllByNameAndAuthor(name,author);
-    }
 
     @Override
     public List<Music> getByName(String name) {
@@ -49,7 +49,11 @@ public class MusicServImpl implements MusicServIn {
     }
 
     @Override
-    public Music getByNameAndAndAuthor(String name, String author) {
-        return musicRepo.getByNameAndAndAuthor(name,author);
+    public Music getById(int id){
+        return musicRepo.findById(id).get();
+    }
+    @Override
+    public List<Music> getByNameAndAuthor(String name, String author) {
+        return musicRepo.getByNameAndAuthor(name,author);
     }
 }

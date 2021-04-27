@@ -11,16 +11,32 @@ import java.util.List;
 public class AlbumServImpl implements AlbumServIn {
 
     @Autowired
-    AlbumRepo albumRepo;
+    private AlbumRepo albumRepo;
+
 
     @Override
-    public void createAlbum(Album album) {
-        albumRepo.save(album);
+    public Album create(Album o) {
+        return albumRepo.save(o);
     }
 
     @Override
-    public List<Album> getAllAlbums() {
+    public Album update(Album o) {
+        return albumRepo.save(o);
+    }
+
+    @Override
+    public void delete(int id) {
+        albumRepo.delete(getById(id));
+    }
+
+    @Override
+    public List<Album> getAll() {
         return albumRepo.findAll();
+    }
+
+    @Override
+    public Album getById(int id) {
+        return albumRepo.findById(id).get();
     }
 
     @Override

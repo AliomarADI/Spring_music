@@ -1,16 +1,17 @@
 package kz.iitu.spotify.services;
 
 import kz.iitu.spotify.model.Album;
+import kz.iitu.spotify.model.Album;
 
 import java.util.List;
 
 public interface AlbumServIn {
 
-    void createAlbum(Album album);
-
-    List<Album> getAllAlbums();
-
-    List<Album> getByName(String name);
-
+    Album create(Album o);
+    Album update(Album o);
+    void delete(int id);
+    List<Album> getAll();
+    Album getById(int id);
+    List<Album> getByName(String s);
 
 }

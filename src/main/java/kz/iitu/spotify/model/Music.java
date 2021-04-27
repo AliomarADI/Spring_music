@@ -18,8 +18,10 @@ public class Music {
     private String name;
     private String author;
     private String genre; //Rock,Popular,Jazz,HipHop,Pop
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "musics")
     List<Album> album;
 
-
+    public int getId() {
+        return id;
+    }
 }
