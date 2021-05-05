@@ -1,5 +1,6 @@
 package kz.iitu.spotify.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,7 @@ public class Music {
     private String name;
     private String author;
     private String genre; //Rock,Popular,Jazz,HipHop,Pop
+    @JsonIgnore
     @ManyToMany(mappedBy = "musics")
     List<Album> album;
 

@@ -32,4 +32,13 @@ public class AlbumController {
     public Album update(@RequestBody Album Album){
         return albumServIn.update(Album);
     }
+    @RequestMapping(value = "/addTo/{albom_id}/music/{music_id}",method = RequestMethod.PUT)
+    public Album addMusic(@PathVariable int albom_id ,@PathVariable int music_id){
+        return albumServIn.addMusic(albom_id,music_id);
+    }
+    @RequestMapping(value = "/deleteFrom/{albom_id}/music/{music_id}",method = RequestMethod.PUT)
+    public Album deleteMusic(@PathVariable int albom_id ,@PathVariable int music_id){
+        return albumServIn.deleteMusic(albom_id,music_id);
+    }
+
 }

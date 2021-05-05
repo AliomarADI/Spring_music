@@ -28,7 +28,7 @@ public class JwtTokenGeneratorFilter extends UsernamePasswordAuthenticationFilte
     public JwtTokenGeneratorFilter(AuthenticationManager authManager) {
         this.authManager = authManager;
 
-        setFilterProcessesUrl("/account/auth");
+        setFilterProcessesUrl("/auth");
     }
 
     @Override

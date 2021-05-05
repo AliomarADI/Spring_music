@@ -21,15 +21,21 @@ public class MusicController {
     public Music create(@RequestBody Music music){
         return musicServIn.createMusic(music);
     }
-
     @GetMapping("")
     public List<Music> getAll(){
         return musicServIn.getAll();
     }
-
     @GetMapping("/{id}")
     public Music getById(@PathVariable int id){
         return musicServIn.getById(id);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+         musicServIn.deleteMusic(id);
+    }
+    @PutMapping("/update")
+    public Music updateMusic(@RequestBody Music music){
+        return musicServIn.updateMusic(music);
     }
 
 

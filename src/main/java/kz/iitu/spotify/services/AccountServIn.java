@@ -11,4 +11,7 @@ public interface AccountServIn {
     void delete(int id);
     List<Account> getAll();
     Account getById(int id);
+    Account getByUsername(String username);
+    Account addAlbum(int user_id, int album_id);
+    Account deleteAlbum(int user_id, int album_id);
 }

@@ -1,5 +1,6 @@
 package kz.iitu.spotify.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,12 +23,20 @@ public class Account implements UserDetails {
     private String username;
     private String password;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns ={@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     private List<kz.iitu.spotify.model.Role> roles;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_albums",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns ={@JoinColumn(name = "album_id", referencedColumnName = "id")}
+    )
+    private List<kz.iitu.spotify.model.Album> albums;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

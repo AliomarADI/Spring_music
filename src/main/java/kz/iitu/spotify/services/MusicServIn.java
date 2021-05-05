@@ -10,7 +10,7 @@ public interface MusicServIn {
 
     Music updateMusic(Music music);
 
-    void deleteMusic(Music music);
+    void deleteMusic(int id);
     List<Music> findAllByNameAndAuthor(String name, String author);
     List<Music> getAll();
     List<Music> getByDistinctGenre(String genre);

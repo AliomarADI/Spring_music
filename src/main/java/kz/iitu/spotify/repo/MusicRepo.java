@@ -17,4 +17,8 @@ public interface MusicRepo extends JpaRepository<Music,Integer> {
     List<Music> getByName(String name);
 
     List<Music>  getByNameAndAuthor(String name,String author);
+
+    Music getById(int id);
+
+    void deleteById(int id);
 }

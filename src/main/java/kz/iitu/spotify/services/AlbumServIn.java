@@ -13,5 +13,7 @@ public interface AlbumServIn {
     List<Album> getAll();
     Album getById(int id);
     List<Album> getByName(String s);
+    Album addMusic(int album_id, int music_id);
+    Album deleteMusic(int album_id, int music_id);
 
 }

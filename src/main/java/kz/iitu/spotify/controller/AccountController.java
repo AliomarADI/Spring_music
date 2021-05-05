@@ -34,4 +34,12 @@ public class AccountController {
     public Account update(@RequestBody Account account){
         return accountServIn.update(account);
     }
+    @RequestMapping(value = "{user_id}/add_album/{album_id}",method = RequestMethod.PUT)
+    public Account addAlbum(@PathVariable int user_id, @PathVariable int album_id){
+        return accountServIn.addAlbum(user_id,album_id);
+    }
+    @RequestMapping(value = "{user_id}/remove_album/{album_id}",method = RequestMethod.PUT)
+    public Account deleteAlbum(@PathVariable int user_id, @PathVariable int album_id){
+        return accountServIn.deleteAlbum(user_id,album_id);
+    }
 }

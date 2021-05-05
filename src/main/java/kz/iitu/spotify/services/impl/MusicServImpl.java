@@ -23,8 +23,8 @@ public class MusicServImpl implements MusicServIn {
     }
 
     @Override
-    public void deleteMusic(Music music) {
-        musicRepo.delete(music);
+    public void deleteMusic(int id) {
+        musicRepo.deleteById(id);
     }
 
     @Override
